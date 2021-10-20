@@ -1,0 +1,21 @@
+1. Get request is to load the data in
+2.Post request is when you are taking data from user input and sending it to another destination
+or sending it to some endpoint.
+3. LINE 14: if "file" not in request.files:
+            return redirect(request.url)
+	This means if a valid file is not found then we will redirect the user to the same page.
+4.LINE 21: if file:
+            recognizer = sr.Recognizer()
+            audioFile = sr.AudioFile(file)
+            with audioFile as source:
+                data = recognizer.record(source)
+            transcript = recognizer.recognize_google(data, key=None)
+We have taken the file that user uploaded, created an audio file object that our speech recognization module
+can understand and then next we are opening up this audio file  and reading it in through the recognizer 
+And so once we have this data in a format that our speech recognition module can recognize , our goal
+now is to simply apply a speech reognition technique.
+And in the LINE 26 we use google cloud to convert audio file into text.
+
+Main code is from LINE 21 to LINE 26:
+
+

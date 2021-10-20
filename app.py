@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request, redirect
 import speech_recognition as sr
-
+#creating a flask environment
+#Setting Up the app in the following line 5
 app = Flask(__name__)
 
-
+#This will route to the home page
 @app.route("/", methods=["GET", "POST"])
 def index():
     transcript = ""
@@ -29,3 +30,5 @@ def index():
 
 if __name__ == "__main__":
     app.run(debug=True, threaded=True)
+    #Debug will allow to command this file and the flask instance will automatically refresh after each save.
+    #Threaded is true so that computer doesn't get overloaded and process multiple requests at the same time
